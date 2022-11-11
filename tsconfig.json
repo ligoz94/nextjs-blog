@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+
+    "allowSyntheticDefaultImports": true,
+
+    "noFallthroughCasesInSwitch": true,
+
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": ["src/common/components/*"],
+      "@styles/*": ["src/common/styles/*"],
+      "@modules/*": ["src/modules/*"],
+      "@services/*": ["src/services/*"],
+      "@hooks/*": ["src/common/hooks/*"],
+      "@utils/*": ["src/common/utils/*"],
+      "@interfaces/*": ["src/common/interfaces/*"],
+      "~/*": ["./*"]
+    },
+    "incremental": true
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/common/hooks/useThemeSwitcher.jsx"],
+  "exclude": ["node_modules", ".next", "out"]
+}

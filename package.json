@@ -1,0 +1,48 @@
+{
+  "name": "ghost-cms-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next build && next start",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "npx eslint --fix .",
+    "format": "prettier --write './src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@next/bundle-analyzer": "^12.3.1",
+    "antd": "^4.23.2",
+    "antd-css-utilities": "^1.0.3",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "hamburger-react": "^2.5.0",
+    "next": "^12.3.1",
+    "plaiceholder": "^2.5.0",
+    "prettier": "^2.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sharp": "^0.31.1",
+    "styled-components": "^5.3.6",
+    "use-sound": "^4.0.1",
+    "wow.js": "^1.2.2"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^6.5.1",
+    "@types/node": "^14.0.27",
+    "@types/react": "^16.9.46",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.0",
+    "babel-plugin-styled-components": "^2.0.7",
+    "eslint": "^8.24.0",
+    "eslint-plugin-react": "^7.31.8",
+    "sass": "^1.26.10",
+    "typescript": "^4.8.4",
+    "webpack-cli": "^4.10.0"
+  }
+}
