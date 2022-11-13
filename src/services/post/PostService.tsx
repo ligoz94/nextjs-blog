@@ -13,17 +13,15 @@ interface getPostsIProps {
 
 export const PostService = {
   async getPosts({ filters = {}, page = 1, limit = 10 }: getPostsIProps) {
-    let url = `${NEXT_PUBLIC_BLOG_URL}posts/?key=${NEXT_PUBLIC_CONTENT_API_KEY}&include=tags&limit=${limit}&page=${page}`
+    let url = `${NEXT_PUBLIC_BLOG_URL}posts/?key=${NEXT_PUBLIC_CONTENT_API_KEY}&include=tags,authors&limit=${limit}&page=${page}`
     if (filters?.tag) url += `&filter=tag:${filters.tag}`
-
-    console.log('url', filters)
 
     const res = await Fetch.get(url)
 
     return { posts: res.posts, pagination: res.meta && res.meta.pagination }
   },
   async getPost(slug: string) {
-    const url = `${NEXT_PUBLIC_BLOG_URL}posts/slug/${slug}?key=${NEXT_PUBLIC_CONTENT_API_KEY}&include=tags`
+    const url = `${NEXT_PUBLIC_BLOG_URL}posts/slug/${slug}?key=${NEXT_PUBLIC_CONTENT_API_KEY}&include=tags,authors`
     const res = await Fetch.get(url)
 
     const posts = res && res.posts

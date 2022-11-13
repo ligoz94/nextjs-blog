@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { PostsListStyles } from './PostsList.style'
-import { Post } from '@interfaces/post'
+import { PostI } from '@interfaces/post'
 import Hover from './Hover'
-import { colorMap } from '@utils/constants'
+import Tag from '@components/Tag/Tag'
 
-const PostCard = ({ slug, base64, tags, excerpt, feature_image, title }: Post, key: number) => (
+const PostCard = ({ slug, base64, tags, excerpt, feature_image, title }: PostI, key: number) => (
   <Link href='/post/[slug]' as={`/post/${slug}`} key={key}>
     <article className='posts-list__post-card wow fadeInUp' data-wow-duration='1s'>
       <div className='posts-list__post-card__image'>
@@ -26,15 +26,16 @@ const PostCard = ({ slug, base64, tags, excerpt, feature_image, title }: Post, k
           <div className='tags'>
             {tags &&
               tags.map((tag, i) => (
-                <Link href={'/tags/[tag]'} as={`/tags/${tag.slug}`} key={tag.slug}>
-                  <span
-                    className='tag'
-                    key={i}
-                    style={{ backgroundColor: `${colorMap[tag.slug]}` }}
-                  >
-                    {tag.name}
-                  </span>
-                </Link>
+                // <Link href={'/tags/[tag]'} as={`/tags/${tag.slug}`} key={tag.slug}>
+                //   <span
+                //     className='tag'
+                //     key={i}
+                //     style={{ backgroundColor: `${colorMap[tag.slug]}` }}
+                //   >
+                //     {tag.name}
+                //   </span>
+                // </Link>
+                <Tag key={i} tag={tag} />
               ))}
           </div>
           <h2 className='title'>{title}</h2>
@@ -55,7 +56,7 @@ const PostCard = ({ slug, base64, tags, excerpt, feature_image, title }: Post, k
   </Link>
 )
 
-const PostsList: React.FC<{ posts: Post[] }> = (props) => {
+const PostsList: React.FC<{ posts: PostI[] }> = (props) => {
   const { posts } = props
 
   const renderPosts = () => {

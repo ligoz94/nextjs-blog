@@ -31,6 +31,7 @@ export const NavbarStyles = styled.nav<IProps>`
       border: none;
       border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
       background-color: ${({ theme }) => theme.colors.header};
+      padding: 0 20px;
     `}
 
   .navbar-hamburger {

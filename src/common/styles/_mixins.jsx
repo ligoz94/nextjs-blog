@@ -40,7 +40,7 @@ export const widget = {
   title: () => css`
     letter-spacing: 0.25px;
     position: absolute;
-    left: 25px;
+    left: 10px;
     top: -20px;
     z-index: 2;
     padding: 2px 15px;
@@ -68,7 +68,7 @@ export const tag = () => css`
   cursor: pointer;
   font-size: ${({ theme }) => theme.fontSizes.tiny};
   font-family: 'Space Grotesk Regular';
-  /* border: 1px solid ${({ theme }) => theme.colors.primary}; */
+
   &:hover {
     transform: translate(-0.5px, -0.5px);
   }

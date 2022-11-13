@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { responsive } from '@styles/_mixins'
+import { responsive, tag } from '@styles/_mixins'
 
 export const PostsListStyles = styled.div`
   .posts-list {
@@ -36,14 +36,17 @@ export const PostsListStyles = styled.div`
       }
       &__image {
         width: 100%;
-        height: 200px;
         position: relative;
+        padding-bottom: calc(0.58 * 100%);
       }
       &__content {
         color: ${({ theme }) => theme.colors.text};
         padding: 0 20px 20px;
         .tags {
           margin: 0 -0.4rem 1rem;
+          .tag {
+            ${tag}
+          }
         }
         .title {
           display: inline-block;

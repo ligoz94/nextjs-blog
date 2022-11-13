@@ -3,13 +3,13 @@ import type { GetStaticPaths, GetStaticProps, GetStaticPropsContext, NextPage } 
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import { getPlaiceholder } from 'plaiceholder'
-import { Pagination, Post, Tags } from 'src/common/interfaces/post'
+import { Pagination, PostI, TagI } from 'src/common/interfaces/post'
 
 const DynamicHome = dynamic(() => import('@modules/home/Home'))
 
 export const PER_PAGE = 10
 
-const PaginatedPage: NextPage<{ posts: Post[]; pagination: Pagination; tags: Tags[] }> = ({
+const PaginatedPage: NextPage<{ posts: PostI[]; pagination: Pagination; tags: TagI[] }> = ({
   posts,
   pagination,
   tags,
@@ -17,7 +17,7 @@ const PaginatedPage: NextPage<{ posts: Post[]; pagination: Pagination; tags: Tag
   return (
     <div>
       <Head>
-        <title>Road to get web3 job</title>
+        <title>Road to web3</title>
         <meta
           name='viewport'
           content='width=device-width,height=device-height,initial-scale=1,user-scalable=no'

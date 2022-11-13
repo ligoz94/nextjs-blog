@@ -27,6 +27,7 @@
       "@hooks/*": ["src/common/hooks/*"],
       "@utils/*": ["src/common/utils/*"],
       "@interfaces/*": ["src/common/interfaces/*"],
+      "@layouts/*": ["src/common/layouts/*"],
       "~/*": ["./*"]
     },
     "incremental": true

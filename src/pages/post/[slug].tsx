@@ -1,18 +1,33 @@
+import { PostI, TagI } from '@interfaces/post'
 import { PostService } from '@services/post/PostService'
-import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
+
+const DynamicPostModule = dynamic(() => import('@modules/post/Post'))
+
+const PostPage: React.FC<{ post: PostI; tags: TagI[] }> = (props) => {
+  const { post, tags } = props
+
+  const router = useRouter()
+
+  if (router.isFallback) {
+    return <h1>Loading...</h1>
+  }
+
+  return <DynamicPostModule post={post} tags={tags} />
+}
+
+export default PostPage
 
 // Ghost CMS Request
 export const getStaticProps = async ({ params }) => {
   const post = await PostService.getPost(params.slug)
+  const tags = await PostService.getAllTags()
   return {
-    props: { post },
+    props: { post, tags },
     revalidate: 10,
   }
 }
-
-// hello-world - on first request = Ghost CMS call is made (1)
-// hello-world - on other requests ... = filesystem is called (1M)
 
 export const getStaticPaths = () => {
   // paths -> slugs which are allowed
@@ -22,33 +37,3 @@ export const getStaticPaths = () => {
     fallback: true,
   }
 }
-
-type Post = {
-  title: string
-  html: string
-  slug: string
-}
-
-const Post: React.FC<{ post: Post }> = (props) => {
-  const { post } = props
-
-  const router = useRouter()
-
-  if (router.isFallback) {
-    return <h1>Loading...</h1>
-  }
-
-  return (
-    <div>
-      <p>
-        <Link href='/'>
-          <a>Go back</a>
-        </Link>
-      </p>
-      <h1>{post.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: post.html }}></div>
-    </div>
-  )
-}
-
-export default Post

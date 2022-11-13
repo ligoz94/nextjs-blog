@@ -1,4 +1,4 @@
-import { Pagination, Post, Tags } from '@interfaces/post'
+import { Pagination, PostI, TagI } from '@interfaces/post'
 import { PostService } from '@services/post/PostService'
 import type { NextPage } from 'next'
 import dynamic from 'next/dynamic'
@@ -7,7 +7,7 @@ import { getPlaiceholder } from 'plaiceholder'
 
 const DynamicHome = dynamic(() => import('@modules/home/Home'))
 
-const IndexPage: NextPage<{ posts: Post[]; pagination: Pagination; tags: Tags[] }> = ({
+const IndexPage: NextPage<{ posts: PostI[]; pagination: Pagination; tags: TagI[] }> = ({
   posts,
   pagination,
   tags,

@@ -44,7 +44,7 @@ const ButtonContents = ({ isHovering, children }) => {
           strokeLinecap='round'
           strokeLinejoin='round'
           style={{
-            opacity: true ? 1 : 0,
+            opacity: 1,
             transition: `opacity ${isHovering ? 0 : ARROW_DELAY}ms`,
           }}
         />

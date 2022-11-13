@@ -1,4 +1,4 @@
-import { Pagination, Post, Tags } from '@interfaces/post'
+import { Pagination, TagI } from '@interfaces/post'
 import { PostService } from '@services/post/PostService'
 import type { NextPage } from 'next'
 import dynamic from 'next/dynamic'
@@ -7,11 +7,7 @@ import { getPlaiceholder } from 'plaiceholder'
 
 const DynamicAbout = dynamic(() => import('@modules/about/About'))
 
-const AboutPage: NextPage<{ posts: Post[]; pagination: Pagination; tags: Tags[] }> = ({
-  posts,
-  pagination,
-  tags,
-}) => {
+const AboutPage: NextPage<{ pagination: Pagination; tags: TagI[] }> = ({ pagination, tags }) => {
   return (
     <div>
       <Head>
@@ -24,7 +20,7 @@ const AboutPage: NextPage<{ posts: Post[]; pagination: Pagination; tags: Tags[] 
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <DynamicAbout posts={posts} pagination={pagination} tags={tags} />
+      <DynamicAbout pagination={pagination} tags={tags} />
     </div>
   )
 }

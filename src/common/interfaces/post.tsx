@@ -1,15 +1,19 @@
-export interface Tags {
+export interface TagI {
   name: string
   slug: string
   url: string
 }
-export type Post = {
+export type PostI = {
   title: string
   slug: string
   feature_image: string
   excerpt: string
-  tags: Tags[]
+  tags: TagI[]
   base64: string
+  html?: string
+  authors?: object
+  published_at?: string
+  reading_time?: number
 }
 
 export type Pagination = {

@@ -21,13 +21,6 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <ThemeCustomProvider initialTheme={lightTheme}>
-        {/* <Image
-          className='bg-image-wrapper'
-          src={'/bg.jpg' || ''}
-          alt='Picture of the author'
-          layout='fill'
-          objectFit='cover'
-        /> */}
         <GlobalStyle />
         <div style={{ visibility: mounted ? 'visible' : 'hidden' }}>
           <Component {...pageProps} />

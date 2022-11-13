@@ -1,11 +1,11 @@
 import { HomeStyles } from './Home.style'
-import { Pagination, PageMeta, Post, Tags } from '@interfaces/post'
+import { Pagination, PageMeta, PostI, TagI } from '@interfaces/post'
 import dynamic from 'next/dynamic'
-import LayoutSidebar from '~/src/common/layouts/LayoutSidebar'
+import LayoutSidebar from '@layouts/LayoutSidebar'
 
 const DynamicPostList = dynamic(() => import('@components/PostsList/PostsList'))
 
-const Home: React.FC<{ posts: Post[]; pagination: Pagination; tags: Tags[] }> = (props) => {
+const Home: React.FC<{ posts: PostI[]; pagination: Pagination; tags: TagI[] }> = (props) => {
   const { posts, tags } = props
 
   const renderPosts = () => {

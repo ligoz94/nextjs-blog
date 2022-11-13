@@ -1,10 +1,10 @@
 import { AboutStyles } from './About.style'
-import { Pagination, PageMeta, Post, Tags } from '@interfaces/post'
+import { Pagination, PageMeta, TagI } from '@interfaces/post'
 
 import LayoutSidebar from '~/src/common/layouts/LayoutSidebar'
 
-const About: React.FC<{ posts: Post[]; pagination: Pagination; tags: Tags[] }> = (props) => {
-  const { posts, tags } = props
+const About: React.FC<{ pagination: Pagination; tags: TagI[] }> = (props) => {
+  const { tags } = props
 
   const pageMeta: PageMeta = {
     title: 'Road to web3',

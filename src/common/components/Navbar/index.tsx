@@ -53,7 +53,7 @@ const Navbar: React.FC<NavabarProps> = (props) => {
       </div>
 
       <div className='navbar-logo'>
-        <a href=''>line</a>
+        <a href=''>Logo</a>
       </div>
 
       <div className='navbar-content'>
